@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import {Outfit} from 'next/font/google'
+import {Outfit,Roboto} from 'next/font/google'
 
 // page imports
 import Image from "next/image";
 import Logo from "./navbar/Logo";
 import Navbarlinks from "./navbar/Navbarlinks";
 import ActionButton from "./navbar/ActionButtons";
+import Footer from "./footer/Footer";
 
 const outfit = Outfit({subsets:['latin']});
-// const roboto =Roboto({subsets:['latin'],weight:['100','300','400','500','700','90)
+const roboto =Roboto({subsets:['latin'],weight:['100','300','400','500','700','900']});
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -36,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${outfit.className}  antialiased`}
+        className={`${outfit.className} ${roboto.className}  antialiased`}
       >
           {/* navbar */}
     <div className="flex justify-between items-center px-8 py-5 border-b-2 h-24">
@@ -53,6 +54,10 @@ export default function RootLayout({
     </div>
       {/*  navbar ends here*/}
         {children}
+    {/* footer */}
+    <div className="">
+      <Footer/>
+    </div>
       </body>
     </html>
   );
